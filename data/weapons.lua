@@ -1,5 +1,14 @@
 return {
 	Weapons = {
+
+		
+		['WEAPON_BEANBAG'] = {
+			label = 'Bean Bag Shotgun',
+			weight = 1400,
+			durability = 0.1,
+			ammoname = 'ammo-beanbag',
+		},
+
 		['WEAPON_BATTLERIFLE'] = {
 			label = 'Battle Rifle',
 			weight = 3300,
@@ -357,6 +366,11 @@ return {
 			durability = 0.1,
 		},
 
+		['WEAPON_PROLASER4'] = {
+			label = 'Police Radar',
+			weight = 300,
+		},
+
 		['WEAPON_KNUCKLE'] = {
 			label = 'Knuckle Dusters',
 			weight = 300,
@@ -460,7 +474,7 @@ return {
 
 		['WEAPON_PETROLCAN'] = {
 			label = 'Jerry Can',
-			weight = 4000,
+			weight = 0,
 		},
 
 		['WEAPON_GADGETPISTOL'] = {
@@ -716,6 +730,18 @@ return {
 			weight = 600,
 			throwable = true,
 		},
+
+		['WEAPON_STUNROD'] = {
+			label = 'Stun Rod',
+			weight = 600,
+		},
+
+		['WEAPON_ACIDPACKAGE'] = {
+			label = 'Suspicious Newspaper',
+			weight = 600,
+			throwable = true,
+		},
+		
 	},
 
 	Components = {
@@ -1782,6 +1808,13 @@ return {
 	},
 
 	Ammo = {
+
+		
+		['ammo-beanbag'] = {
+			label = 'Bean Bag',
+			weight = 20,
+		},
+		
 		['ammo-22'] = {
 			label = '.22 Long Rifle',
 			weight = 3,

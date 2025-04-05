@@ -67,8 +67,11 @@ end
 
 ---@param ped number
 ---@return boolean
-local function canOpenTarget(ped)
-	return IsPedFatallyInjured(ped)
+local function canOpenTarget(ped)    
+	local player = NetworkGetPlayerIndexFromPed(ped)
+    local playerID = GetPlayerServerId(player)
+    return IsPedFatallyInjured(ped)
+    or Player(playerID).state.dead
 	or IsEntityPlayingAnim(ped, 'dead', 'dead_a', 3)
 	or IsPedCuffed(ped)
 	or IsEntityPlayingAnim(ped, 'mp_arresting', 'idle', 3)
@@ -1707,7 +1710,7 @@ RegisterNUICallback('giveItem', function(data, cb)
 				local playerName = GetPlayerName(option.id)
 				option.id = GetPlayerServerId(option.id)
                 ---@diagnostic disable-next-line: inject-field
-				option.label = ('[%s] %s'):format(option.id, playerName)
+				option.label = ('[%s] %s'):format(option.id)
 				n += 1
 				giveList[n] = option
 			end

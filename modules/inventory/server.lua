@@ -2551,6 +2551,12 @@ local function updateWeapon(source, action, value, slot, specialAmmo)
 				if item.hash == `WEAPON_FIREEXTINGUISHER` or item.hash == `WEAPON_PETROLCAN` or item.hash == `WEAPON_HAZARDCAN` or item.hash == `WEAPON_FERTILIZERCAN` then
 					weapon.metadata.durability = math.floor(value)
 					weapon.metadata.ammo = weapon.metadata.durability
+					if item.hash == `WEAPON_PETROLCAN` then
+						local weight = exports['Renewed-Fuel']:GetFuelCanWeight(weapon.metadata.durability) -- Use this if you want to have a realistic weight system
+						weapon.weight = weight
+						weapon.metadata.weight = weight
+						weapon.metadata.oilAmount = exports['Renewed-Fuel']:DurabilityToGallons(weapon.metadata.durability) -- Use this if you want to show the oil amount in the inventory
+					end
 				elseif value < weapon.metadata.ammo then
 					local durability = Items(weapon.name).durability * math.abs((weapon.metadata.ammo or 0.1) - value)
 					weapon.metadata.ammo = value

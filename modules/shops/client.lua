@@ -54,7 +54,7 @@ local function onEnterShop(point)
                     client.openInventory('shop', { id = point.invId, type = point.type })
                 end,
                 iconColor = point.iconColor,
-                distance = point.shopDistance or 2.0
+                distance = point.shopDistance or 8.0
             }
 		})
 
@@ -124,7 +124,7 @@ local function refreshShops()
                         onSelect = function()
                             client.openInventory('shop', { type = type })
                         end,
-                        distance = 2
+                        distance = 8
                     },
 				})
 			elseif shop.targets then
@@ -151,7 +151,7 @@ local function refreshShops()
 							iconColor = target.iconColor,
 							onEnter = onEnterShop,
 							onExit = onExitShop,
-							shopDistance = target.distance,
+							shopDistance = 8,
 						})
 					else
 						if not hasShopAccess(shop) then goto nextShop end
@@ -169,7 +169,7 @@ local function refreshShops()
                                         client.openInventory('shop', { id = i, type = type })
                                     end,
                                     iconColor = target.iconColor,
-                                    distance = target.distance
+                                    distance = 8
                                 }
                             }),
 							blip = blip and createBlip(blip, target.coords)
